@@ -37,31 +37,28 @@
       padding-left: 10px;
       padding-bottom: 2px;
     }
-    .box::before {
+    .box .copy {
       content: 'Copied!';
-      background: rgb(158, 158, 158);
+      background: #ddd;
       color: #010101;
       font-size: 0.7em;
       border-radius: 10px;
       padding: 5px 5px;
       position: absolute;
       top: 0;
-      left: 166px;
-      opacity: 0;
-  
+      left: 167px;
+      opacity: 1;
     }
     .box::after {
       content: '';
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
       transform: rotate(45deg);
       position: relative;
       top: -31px;
       left: -20px;
-      z-index: -1;
-      background: rgb(158, 158, 158);
-      opacity: 0;
-      
+      background: #ddd;
+      opacity: 1;
     }
     .container.active .box::before,
     .container.active .box::after {
@@ -83,6 +80,7 @@
     <div class="box">
       <h1 id="hex">#010101</h1>
       <ion-icon id="copy" name="copy-outline"></ion-icon>
+      <span class="copy">copied!</span>
     </div>
   <button>Show New Color</button>
   </div>
@@ -90,6 +88,7 @@
   <script>
     let hexCode = document.querySelector('#hex');
     const button = document.querySelector('button');
+    const text = document.querySelector('.box .copy');
     
     function showNewColor() {
     
@@ -102,7 +101,7 @@
       }
       document.body.style.background = color;
       document.querySelector('h1').innerText = color;
-     
+      text.style.color = color;
     }
     
     button.addEventListener('click', showNewColor);
