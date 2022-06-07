@@ -29,6 +29,9 @@
       display: flex;
       align-items: baseline;
     }
+    .box #copy:active {
+      color: rgb(101, 101, 101);
+    }
     .box #copy {
       font-size: 1.5em;
       padding-left: 10px;
@@ -40,10 +43,10 @@
       color: #010101;
       font-size: 0.7em;
       border-radius: 10px;
-      padding: 5px 10px;
+      padding: 5px 5px;
       position: absolute;
       top: 0;
-      left: 160px;
+      left: 166px;
       opacity: 0;
   
     }
@@ -51,10 +54,9 @@
       content: '';
       width: 10px;
       height: 10px;
-      background: red;
       transform: rotate(45deg);
       position: relative;
-      top: -30px;
+      top: -31px;
       left: -20px;
       z-index: -1;
       background: rgb(158, 158, 158);
@@ -77,12 +79,10 @@
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="container active">
     <div class="box">
       <h1 id="hex">#010101</h1>
-
       <ion-icon id="copy" name="copy-outline"></ion-icon>
- 
     </div>
   <button>Show New Color</button>
   </div>
