@@ -5,6 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Random BG Generator</title>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
   <style>
     body {
       margin: 0;
@@ -21,6 +23,47 @@
       transform: translate(-50%, -50%);
       display: flex;
       flex-direction: column;
+      transition: all 0.5s ease;
+    }
+    .box {
+      display: flex;
+      align-items: baseline;
+    }
+    .box #copy {
+      font-size: 1.5em;
+      padding-left: 10px;
+      padding-bottom: 2px;
+    }
+    .box::before {
+      content: 'Copied!';
+      background: rgb(158, 158, 158);
+      color: #010101;
+      font-size: 0.7em;
+      border-radius: 10px;
+      padding: 5px 10px;
+      position: absolute;
+      top: 0;
+      left: 160px;
+      opacity: 0;
+  
+    }
+    .box::after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      background: red;
+      transform: rotate(45deg);
+      position: relative;
+      top: -30px;
+      left: -20px;
+      z-index: -1;
+      background: rgb(158, 158, 158);
+      opacity: 0;
+      
+    }
+    .container.active .box::before,
+    .container.active .box::after {
+      opacity: 1;
     }
     button {
       background-color: transparent;
@@ -35,7 +78,12 @@
 </head>
 <body>
   <div class="container">
-    <h1 id="hex">#010101</h1>
+    <div class="box">
+      <h1 id="hex">#010101</h1>
+
+      <ion-icon id="copy" name="copy-outline"></ion-icon>
+ 
+    </div>
   <button>Show New Color</button>
   </div>
 
@@ -53,12 +101,13 @@
         console.log(color);
       }
       document.body.style.background = color;
-      document.getElementById('hex').innerText = color
+      document.querySelector('h1').innerText = color;
+     
     }
     
     button.addEventListener('click', showNewColor);
 
-
+  
 
     
   </script>
